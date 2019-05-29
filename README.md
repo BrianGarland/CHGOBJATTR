@@ -10,7 +10,7 @@ A utility to set the source attributes of an IBM i object.  This can be useful w
 ### Usage instructions
 
 1. `ADDLIBLE CHGOBJATTR` (or whatever library you used)
-2) `CHGOBJATTR` and prompt for parameters 
+2. `CHGOBJATTR` and prompt for parameters 
 
 ### License
 
