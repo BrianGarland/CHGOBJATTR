@@ -1,4 +1,4 @@
-#CHGOBJATTR
+# CHGOBJATTR
 
 A utility to set the source attributes of an IBM i object.  This can be useful when building from IFS source or using CRTFRMSTMF.  
 
