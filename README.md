@@ -4,13 +4,13 @@ A utility to set the source attributes of an IBM i object.  This can be useful w
 
 ### Installation
 
-1. 'git clone' this repository
-2. Run 'gmake' (available from yum)
+1. `git clone` this repository
+2. Run `gmake` (available from yum)
 
 ### Usage instructions
 
-1. 'ADDLIBLE CHGOBJATTR' (or whatever library you used)
-2) 'CHGOBJATTR' and prompt for parameters 
+1. `ADDLIBLE CHGOBJATTR` (or whatever library you used)
+2) `CHGOBJATTR` and prompt for parameters 
 
 ### License
 
