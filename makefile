@@ -5,7 +5,7 @@ TGTRLS=V7R1M0
 
 #----------
 
-all: chgobjattr.rpgle chgobjattr.cmd
+all: $(BIN_LIB).lib chgobjattr.rpgle chgobjattr.cmd
 	@echo "Built all"
 
 #----------
@@ -14,10 +14,15 @@ all: chgobjattr.rpgle chgobjattr.cmd
 	system "CRTBNDRPG PGM($(BIN_LIB)/$*) SRCSTMF('QSOURCE/$*.rpgle') TEXT('$(NAME)') REPLACE(*YES) DBGVIEW($(DBGVIEW)) TGTRLS($(TGTRLS))"
 	
 %.cmd:
-	-system -qi "CRTSRCPF FILE($(BIN_LIB)/QCMDSRC) MBR($*) RCDLEN(112)"
 	system "CPYFRMSTMF FROMSTMF('QSOURCE/$*.cmd') TOMBR('/QSYS.lib/$(BIN_LIB).lib/QCMDSRC.file/$*.mbr') MBROPT(*REPLACE)"
 	system "CRTCMD CMD($(BIN_LIB)/$*) PGM($(BIN_LIB)/$*) SRCFILE($(BIN_LIB)/QCMDSRC) SRCMBR($*) TEXT('$(NAME)')"
-	-system -qi "DLTF FILE($(BIN_LIB)/QCMDSRC)"
 	
+%.lib:
+	-system -qi "CRTLIB LIB($(BIN_LIB)) TEXT('$(NAME)')"
+	-system -qi "CRTSRCPF FILE($(BIN_LIB)/QSOURCE) MBR($*) RCDLEN(112)"
+
 clean:
-	system "CLRLIB $(BIN_LIB)"
+	system "CLRLIB LIB($(BIN_LIB))"
+
+erase:
+	-system -qi "DLTLIB LIB($(BIN_LIB))"	
